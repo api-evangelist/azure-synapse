@@ -1,0 +1,142 @@
+name: Azure Synapse Analytics
+description: Azure Synapse Analytics is an enterprise analytics service that accelerates time to insight across data warehouses and big data systems. It brings together the best of SQL technologies, Spark technologies, Data Explorer, and integrated pipelines for data integration and ETL/ELT.
+image: https://azure.microsoft.com/svghandler/synapse-analytics/
+tags:
+- Analytics
+- Data Warehouse
+- Big Data
+- ETL
+- Apache Spark
+- SQL
+created: '2024'
+modified: '2024'
+url: https://azure.microsoft.com/en-us/services/synapse-analytics/
+specificationVersion: '0.18'
+apis:
+- name: Azure Synapse REST API
+  description: REST API for managing Azure Synapse Analytics workspaces, SQL pools, Spark pools, and pipelines
+  image: https://azure.microsoft.com/svghandler/synapse-analytics/
+  humanURL: https://docs.microsoft.com/en-us/rest/api/synapse/
+  baseURL: https://management.azure.com
+  tags:
+  - REST API
+  - Management
+  properties:
+  - type: Documentation
+    url: https://docs.microsoft.com/en-us/rest/api/synapse/
+  - type: OpenAPI
+    url: https://raw.githubusercontent.com/Azure/azure-rest-api-specs/main/specification/synapse/resource-manager/Microsoft.Synapse/stable/2021-06-01/synapse.json
+  - type: Authentication
+    url: https://docs.microsoft.com/en-us/azure/active-directory/develop/authentication-scenarios
+- name: Azure Synapse Workspace API
+  description: API for workspace management operations including creation, updates, and deletion
+  image: https://azure.microsoft.com/svghandler/synapse-analytics/
+  humanURL: https://docs.microsoft.com/en-us/rest/api/synapse/workspace
+  baseURL: https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Synapse/workspaces
+  tags:
+  - Workspace
+  - Management
+  properties:
+  - type: Documentation
+    url: https://docs.microsoft.com/en-us/rest/api/synapse/workspace
+  - type: OpenAPI
+    url: https://raw.githubusercontent.com/Azure/azure-rest-api-specs/main/specification/synapse/resource-manager/Microsoft.Synapse/stable/2021-06-01/workspace.json
+- name: Azure Synapse SQL Pools API
+  description: API for managing dedicated SQL pools (formerly SQL DW)
+  image: https://azure.microsoft.com/svghandler/synapse-analytics/
+  humanURL: https://docs.microsoft.com/en-us/rest/api/synapse/sql-pools
+  baseURL: https://management.azure.com
+  tags:
+  - SQL Pool
+  - Data Warehouse
+  properties:
+  - type: Documentation
+    url: https://docs.microsoft.com/en-us/rest/api/synapse/sql-pools
+  - type: OpenAPI
+    url: https://raw.githubusercontent.com/Azure/azure-rest-api-specs/main/specification/synapse/resource-manager/Microsoft.Synapse/stable/2021-06-01/sqlPool.json
+- name: Azure Synapse Spark Pools API
+  description: API for managing Apache Spark pools
+  image: https://azure.microsoft.com/svghandler/synapse-analytics/
+  humanURL: https://docs.microsoft.com/en-us/rest/api/synapse/spark-pools
+  baseURL: https://management.azure.com
+  tags:
+  - Spark
+  - Big Data
+  properties:
+  - type: Documentation
+    url: https://docs.microsoft.com/en-us/rest/api/synapse/spark-pools
+  - type: OpenAPI
+    url: https://raw.githubusercontent.com/Azure/azure-rest-api-specs/main/specification/synapse/resource-manager/Microsoft.Synapse/stable/2021-06-01/bigDataPool.json
+- name: Azure Synapse Pipeline API
+  description: API for creating and managing data integration pipelines
+  image: https://azure.microsoft.com/svghandler/synapse-analytics/
+  humanURL: https://docs.microsoft.com/en-us/rest/api/synapse/data-plane/pipeline
+  baseURL: https://{workspaceName}.dev.azuresynapse.net
+  tags:
+  - Pipeline
+  - ETL
+  - Data Integration
+  properties:
+  - type: Documentation
+    url: https://docs.microsoft.com/en-us/rest/api/synapse/data-plane/pipeline
+  - type: OpenAPI
+    url: https://raw.githubusercontent.com/Azure/azure-rest-api-specs/main/specification/synapse/data-plane/Microsoft.Synapse/stable/2020-12-01/artifacts.json
+- name: Azure Synapse Spark Job API
+  description: API for submitting and managing Spark jobs
+  image: https://azure.microsoft.com/svghandler/synapse-analytics/
+  humanURL: https://docs.microsoft.com/en-us/rest/api/synapse/data-plane/spark
+  baseURL: https://{workspaceName}.dev.azuresynapse.net
+  tags:
+  - Spark
+  - Jobs
+  properties:
+  - type: Documentation
+    url: https://docs.microsoft.com/en-us/rest/api/synapse/data-plane/spark
+  - type: OpenAPI
+    url: https://raw.githubusercontent.com/Azure/azure-rest-api-specs/main/specification/synapse/data-plane/Microsoft.Synapse/stable/2020-12-01/sparkJob.json
+- name: Azure Synapse Monitoring API
+  description: API for monitoring pipeline runs, trigger runs, and Spark jobs
+  image: https://azure.microsoft.com/svghandler/synapse-analytics/
+  humanURL: https://docs.microsoft.com/en-us/rest/api/synapse/data-plane/monitoring
+  baseURL: https://{workspaceName}.dev.azuresynapse.net
+  tags:
+  - Monitoring
+  - Observability
+  properties:
+  - type: Documentation
+    url: https://docs.microsoft.com/en-us/rest/api/synapse/data-plane/monitoring
+  - type: OpenAPI
+    url: https://raw.githubusercontent.com/Azure/azure-rest-api-specs/main/specification/synapse/data-plane/Microsoft.Synapse/stable/2020-12-01/monitoring.json
+- name: Azure Synapse Data Explorer API
+  description: API for managing Kusto pools and databases
+  image: https://azure.microsoft.com/svghandler/synapse-analytics/
+  humanURL: https://docs.microsoft.com/en-us/rest/api/synapse/kusto-pools
+  baseURL: https://management.azure.com
+  tags:
+  - Data Explorer
+  - Kusto
+  - Analytics
+  properties:
+  - type: Documentation
+    url: https://docs.microsoft.com/en-us/rest/api/synapse/kusto-pools
+  - type: OpenAPI
+    url: https://raw.githubusercontent.com/Azure/azure-rest-api-specs/main/specification/synapse/resource-manager/Microsoft.Synapse/stable/2021-06-01-preview/kustoPool.json
+common:
+- type: Portal
+  url: https://portal.azure.com
+- type: Getting Started
+  url: https://docs.microsoft.com/en-us/azure/synapse-analytics/get-started
+- type: Pricing
+  url: https://azure.microsoft.com/en-us/pricing/details/synapse-analytics/
+- type: Status
+  url: https://status.azure.com/
+- type: Support
+  url: https://azure.microsoft.com/en-us/support/
+- type: Blog
+  url: https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/bg-p/AzureSynapseAnalyticsBlog
+- type: GitHub
+  url: https://github.com/Azure/azure-synapse-analytics
+maintainers:
+- FN: Microsoft Azure
+  email: azuresynapse@microsoft.com
+  x-twitter: Azure
