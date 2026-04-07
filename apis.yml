@@ -9,10 +9,10 @@ type: Index
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
   - Analytics
-  - Data Warehouse
-  - Big Data
-  - ETL
   - Apache Spark
+  - Big Data
+  - Data Warehouse
+  - ETL
   - SQL
 url: >-
   https://raw.githubusercontent.com/api-evangelist/azure-synapse/refs/heads/main/apis.yml
@@ -28,8 +28,8 @@ apis:
     humanURL: https://docs.microsoft.com/en-us/rest/api/synapse/
     baseURL: https://management.azure.com
     tags:
-      - REST API
       - Management
+      - REST API
     properties:
       - type: Documentation
         url: https://docs.microsoft.com/en-us/rest/api/synapse/
@@ -43,9 +43,9 @@ apis:
     humanURL: https://docs.microsoft.com/en-us/rest/api/synapse/data-plane/pipeline
     baseURL: https://{workspaceName}.dev.azuresynapse.net
     tags:
-      - Pipeline
-      - ETL
       - Data Integration
+      - ETL
+      - Pipeline
     properties:
       - type: Documentation
         url: https://docs.microsoft.com/en-us/rest/api/synapse/data-plane/pipeline
