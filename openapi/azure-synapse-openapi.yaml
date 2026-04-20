@@ -1,0 +1,483 @@
+openapi: 3.0.3
+info:
+  title: Azure Synapse Analytics API
+  description: >-
+    REST API for managing Azure Synapse Analytics workspaces, SQL pools,
+    Apache Spark pools, and data integration pipelines.
+  version: '2021-06-01'
+  x-generated-from: documentation
+servers:
+- url: https://management.azure.com
+  description: Azure Resource Manager
+security:
+- azure_auth:
+  - user_impersonation
+tags:
+- name: Workspaces
+  description: Manage Synapse Analytics workspaces
+- name: SQL Pools
+  description: Manage dedicated SQL pools
+- name: Spark Pools
+  description: Manage Apache Spark pools
+- name: Pipelines
+  description: Manage data integration pipelines
+paths:
+  /subscriptions/{subscriptionId}/providers/Microsoft.Synapse/workspaces:
+    get:
+      operationId: Workspaces_List
+      summary: Azure Synapse List Workspaces
+      description: Returns a list of workspaces in a subscription.
+      tags:
+      - Workspaces
+      parameters:
+      - name: subscriptionId
+        in: path
+        required: true
+        schema:
+          type: string
+        example: '00000000-0000-0000-0000-000000000000'
+      - name: api-version
+        in: query
+        required: true
+        schema:
+          type: string
+        example: '2021-06-01'
+      responses:
+        '200':
+          description: List of workspaces
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WorkspaceInfoListResult'
+              examples:
+                Workspaces_List200Example:
+                  summary: Default Workspaces_List 200 response
+                  x-microcks-default: true
+                  value:
+                    id: example-id
+                    name: example
+                    provisioningState: Succeeded
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Synapse/workspaces/{workspaceName}:
+    get:
+      operationId: Workspaces_Get
+      summary: Azure Synapse Get a Workspace
+      description: Gets a workspace.
+      tags:
+      - Workspaces
+      parameters:
+      - name: subscriptionId
+        in: path
+        required: true
+        schema:
+          type: string
+        example: '00000000-0000-0000-0000-000000000000'
+      - name: resourceGroupName
+        in: path
+        required: true
+        schema:
+          type: string
+        example: 'my-resource-group'
+      - name: workspaceName
+        in: path
+        required: true
+        schema:
+          type: string
+        example: 'my-synapse-workspace'
+      - name: api-version
+        in: query
+        required: true
+        schema:
+          type: string
+        example: '2021-06-01'
+      responses:
+        '200':
+          description: Workspace details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Workspace'
+              examples:
+                Workspaces_Get200Example:
+                  summary: Default Workspaces_Get 200 response
+                  x-microcks-default: true
+                  value:
+                    id: example-id
+                    name: example
+                    provisioningState: Succeeded
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    put:
+      operationId: Workspaces_CreateOrUpdate
+      summary: Azure Synapse Create or Update a Workspace
+      description: Creates or updates a workspace.
+      tags:
+      - Workspaces
+      parameters:
+      - name: subscriptionId
+        in: path
+        required: true
+        schema:
+          type: string
+        example: '00000000-0000-0000-0000-000000000000'
+      - name: resourceGroupName
+        in: path
+        required: true
+        schema:
+          type: string
+        example: 'my-resource-group'
+      - name: workspaceName
+        in: path
+        required: true
+        schema:
+          type: string
+        example: 'my-synapse-workspace'
+      - name: api-version
+        in: query
+        required: true
+        schema:
+          type: string
+        example: '2021-06-01'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Workspace'
+      responses:
+        '200':
+          description: Workspace updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Workspace'
+              examples:
+                Workspaces_CreateOrUpdate200Example:
+                  summary: Default Workspaces_CreateOrUpdate 200 response
+                  x-microcks-default: true
+                  value:
+                    id: example-id
+                    name: example
+                    provisioningState: Succeeded
+        '201':
+          description: Workspace created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Workspace'
+              examples:
+                Workspaces_CreateOrUpdate201Example:
+                  summary: Default Workspaces_CreateOrUpdate 201 response
+                  x-microcks-default: true
+                  value:
+                    id: example-id
+                    name: example
+                    provisioningState: Succeeded
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    delete:
+      operationId: Workspaces_Delete
+      summary: Azure Synapse Delete a Workspace
+      description: Deletes a workspace.
+      tags:
+      - Workspaces
+      parameters:
+      - name: subscriptionId
+        in: path
+        required: true
+        schema:
+          type: string
+        example: 00000000-0000-0000-0000-000000000000
+      - name: resourceGroupName
+        in: path
+        required: true
+        schema:
+          type: string
+        example: my-resource-group
+      - name: workspaceName
+        in: path
+        required: true
+        schema:
+          type: string
+        example: example-value
+      - name: api-version
+        in: query
+        required: true
+        schema:
+          type: string
+        example: '2019-06-01'
+      responses:
+        '200':
+          description: Workspace deleted
+        '202':
+          description: Delete operation accepted
+        '204':
+          description: Workspace not found
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Synapse/workspaces/{workspaceName}/sqlPools
+  : get:
+      operationId: SqlPools_ListByWorkspace
+      summary: Azure Synapse List SQL Pools
+      description: List SQL pools in a workspace.
+      tags:
+      - SQL Pools
+      parameters:
+      - name: subscriptionId
+        in: path
+        required: true
+        schema:
+          type: string
+        example: '00000000-0000-0000-0000-000000000000'
+      - name: resourceGroupName
+        in: path
+        required: true
+        schema:
+          type: string
+        example: 'my-resource-group'
+      - name: workspaceName
+        in: path
+        required: true
+        schema:
+          type: string
+        example: 'my-synapse-workspace'
+      - name: api-version
+        in: query
+        required: true
+        schema:
+          type: string
+        example: '2021-06-01'
+      responses:
+        '200':
+          description: List of SQL pools
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SqlPoolInfoListResult'
+              examples:
+                SqlPools_ListByWorkspace200Example:
+                  summary: Default SqlPools_ListByWorkspace 200 response
+                  x-microcks-default: true
+                  value:
+                    id: example-id
+                    name: example
+                    provisioningState: Succeeded
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Synapse/workspaces/{workspaceName}/bigDataPools
+  : get:
+      operationId: BigDataPools_ListByWorkspace
+      summary: Azure Synapse List Spark Pools
+      description: List Apache Spark pools in a workspace.
+      tags:
+      - Spark Pools
+      parameters:
+      - name: subscriptionId
+        in: path
+        required: true
+        schema:
+          type: string
+        example: '00000000-0000-0000-0000-000000000000'
+      - name: resourceGroupName
+        in: path
+        required: true
+        schema:
+          type: string
+        example: 'my-resource-group'
+      - name: workspaceName
+        in: path
+        required: true
+        schema:
+          type: string
+        example: 'my-synapse-workspace'
+      - name: api-version
+        in: query
+        required: true
+        schema:
+          type: string
+        example: '2021-06-01'
+      responses:
+        '200':
+          description: List of Spark pools
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BigDataPoolResourceInfoListResult'
+              examples:
+                BigDataPools_ListByWorkspace200Example:
+                  summary: Default BigDataPools_ListByWorkspace 200 response
+                  x-microcks-default: true
+                  value:
+                    id: example-id
+                    name: example
+                    provisioningState: Succeeded
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  securitySchemes:
+    azure_auth:
+      type: oauth2
+      flows:
+        implicit:
+          authorizationUrl: https://login.microsoftonline.com/common/oauth2/authorize
+          scopes:
+            user_impersonation: Impersonate your user account
+  schemas:
+    Workspace:
+      type: object
+      description: A workspace resource.
+      properties:
+        id:
+          type: string
+          readOnly: true
+          description: Resource ID
+        name:
+          type: string
+          readOnly: true
+          description: Resource name
+        type:
+          type: string
+          readOnly: true
+          description: Resource type
+        location:
+          type: string
+          description: Azure region location
+        tags:
+          type: object
+          additionalProperties:
+            type: string
+          description: Resource tags
+        properties:
+          type: object
+          properties:
+            provisioningState:
+              type: string
+              readOnly: true
+              description: Resource provisioning state
+            sqlAdministratorLogin:
+              type: string
+              description: SQL admin login name
+            defaultDataLakeStorage:
+              type: object
+              properties:
+                accountUrl:
+                  type: string
+                filesystem:
+                  type: string
+            connectivityEndpoints:
+              type: object
+              readOnly: true
+              additionalProperties:
+                type: string
+    WorkspaceInfoListResult:
+      type: object
+      properties:
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/Workspace'
+        nextLink:
+          type: string
+          readOnly: true
+    SqlPool:
+      type: object
+      description: A SQL pool resource.
+      properties:
+        id:
+          type: string
+          readOnly: true
+        name:
+          type: string
+          readOnly: true
+        location:
+          type: string
+        tags:
+          type: object
+          additionalProperties:
+            type: string
+        sku:
+          type: object
+          properties:
+            tier:
+              type: string
+            name:
+              type: string
+            capacity:
+              type: integer
+        properties:
+          type: object
+          properties:
+            provisioningState:
+              type: string
+              readOnly: true
+            status:
+              type: string
+              readOnly: true
+            restorePointInTime:
+              type: string
+              format: date-time
+    SqlPoolInfoListResult:
+      type: object
+      properties:
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/SqlPool'
+        nextLink:
+          type: string
+    BigDataPool:
+      type: object
+      description: An Apache Spark pool resource.
+      properties:
+        id:
+          type: string
+          readOnly: true
+        name:
+          type: string
+          readOnly: true
+        location:
+          type: string
+        properties:
+          type: object
+          properties:
+            provisioningState:
+              type: string
+              readOnly: true
+            nodeCount:
+              type: integer
+            nodeSize:
+              type: string
+              enum:
+              - Small
+              - Medium
+              - Large
+              - XLarge
+              - XXLarge
+              - XXXLarge
+            sparkVersion:
+              type: string
+            autoScaleProperties:
+              type: object
+              properties:
+                minNodeCount:
+                  type: integer
+                maxNodeCount:
+                  type: integer
+                enabled:
+                  type: boolean
+    BigDataPoolResourceInfoListResult:
+      type: object
+      properties:
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/BigDataPool'
+        nextLink:
+          type: string

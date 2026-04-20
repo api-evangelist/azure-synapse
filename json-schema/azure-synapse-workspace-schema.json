@@ -1,0 +1,67 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/azure-synapse/refs/heads/main/json-schema/azure-synapse-workspace-schema.json",
+  "title": "Workspace",
+  "description": "A workspace resource.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "readOnly": true,
+      "description": "Resource ID"
+    },
+    "name": {
+      "type": "string",
+      "readOnly": true,
+      "description": "Resource name"
+    },
+    "type": {
+      "type": "string",
+      "readOnly": true,
+      "description": "Resource type"
+    },
+    "location": {
+      "type": "string",
+      "description": "Azure region location"
+    },
+    "tags": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      },
+      "description": "Resource tags"
+    },
+    "properties": {
+      "type": "object",
+      "properties": {
+        "provisioningState": {
+          "type": "string",
+          "readOnly": true,
+          "description": "Resource provisioning state"
+        },
+        "sqlAdministratorLogin": {
+          "type": "string",
+          "description": "SQL admin login name"
+        },
+        "defaultDataLakeStorage": {
+          "type": "object",
+          "properties": {
+            "accountUrl": {
+              "type": "string"
+            },
+            "filesystem": {
+              "type": "string"
+            }
+          }
+        },
+        "connectivityEndpoints": {
+          "type": "object",
+          "readOnly": true,
+          "additionalProperties": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

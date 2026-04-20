@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/azure-synapse/refs/heads/main/json-schema/azure-synapse-sql-pool-schema.json",
+  "title": "SqlPool",
+  "description": "A SQL pool resource.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "readOnly": true
+    },
+    "name": {
+      "type": "string",
+      "readOnly": true
+    },
+    "location": {
+      "type": "string"
+    },
+    "tags": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "sku": {
+      "type": "object",
+      "properties": {
+        "tier": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "capacity": {
+          "type": "integer"
+        }
+      }
+    },
+    "properties": {
+      "type": "object",
+      "properties": {
+        "provisioningState": {
+          "type": "string",
+          "readOnly": true
+        },
+        "status": {
+          "type": "string",
+          "readOnly": true
+        },
+        "restorePointInTime": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    }
+  }
+}

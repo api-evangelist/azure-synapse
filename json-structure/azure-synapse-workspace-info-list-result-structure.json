@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/azure-synapse/refs/heads/main/json-structure/azure-synapse-workspace-info-list-result-structure.json",
+  "description": "WorkspaceInfoListResult schema from Azure Synapse Analytics API",
+  "type": "object",
+  "properties": {
+    "value": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/Workspace"
+      }
+    },
+    "nextLink": {
+      "type": "string",
+      "readOnly": true
+    }
+  },
+  "name": "WorkspaceInfoListResult"
+}

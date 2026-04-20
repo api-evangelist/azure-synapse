@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/azure-synapse/refs/heads/main/json-structure/azure-synapse-big-data-pool-structure.json",
+  "description": "An Apache Spark pool resource.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "readOnly": true
+    },
+    "name": {
+      "type": "string",
+      "readOnly": true
+    },
+    "location": {
+      "type": "string"
+    },
+    "properties": {
+      "type": "object",
+      "properties": {
+        "provisioningState": {
+          "type": "string",
+          "readOnly": true
+        },
+        "nodeCount": {
+          "type": "integer"
+        },
+        "nodeSize": {
+          "type": "string",
+          "enum": [
+            "Small",
+            "Medium",
+            "Large",
+            "XLarge",
+            "XXLarge",
+            "XXXLarge"
+          ]
+        },
+        "sparkVersion": {
+          "type": "string"
+        },
+        "autoScaleProperties": {
+          "type": "object",
+          "properties": {
+            "minNodeCount": {
+              "type": "integer"
+            },
+            "maxNodeCount": {
+              "type": "integer"
+            },
+            "enabled": {
+              "type": "boolean"
+            }
+          }
+        }
+      }
+    }
+  },
+  "name": "BigDataPool"
+}

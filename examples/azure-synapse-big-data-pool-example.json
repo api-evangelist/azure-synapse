@@ -1,0 +1,16 @@
+{
+  "id": "example-string",
+  "name": "example-string",
+  "location": "example-string",
+  "properties": {
+    "provisioningState": "example-string",
+    "nodeCount": 1,
+    "nodeSize": "Small",
+    "sparkVersion": "example-string",
+    "autoScaleProperties": {
+      "minNodeCount": {},
+      "maxNodeCount": {},
+      "enabled": {}
+    }
+  }
+}

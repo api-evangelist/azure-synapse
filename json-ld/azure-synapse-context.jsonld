@@ -1,0 +1,49 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "azuresynapse": "https://azure.microsoft.com/azure-synapse/schema/",
+    "schema": "https://schema.org/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "Workspace": "azuresynapse:Workspace",
+    "WorkspaceInfoListResult": "azuresynapse:WorkspaceInfoListResult",
+    "SqlPool": "azuresynapse:SqlPool",
+    "SqlPoolInfoListResult": "azuresynapse:SqlPoolInfoListResult",
+    "BigDataPool": "azuresynapse:BigDataPool",
+    "BigDataPoolResourceInfoListResult": "azuresynapse:BigDataPoolResourceInfoListResult",
+    "id": {
+      "@id": "azuresynapse:id",
+      "@type": "xsd:string"
+    },
+    "name": "schema:name",
+    "type": {
+      "@id": "azuresynapse:type",
+      "@type": "xsd:string"
+    },
+    "location": {
+      "@id": "azuresynapse:location",
+      "@type": "xsd:string"
+    },
+    "tags": {
+      "@id": "azuresynapse:tags",
+      "@type": "@id"
+    },
+    "properties": {
+      "@id": "azuresynapse:properties",
+      "@type": "@id"
+    },
+    "value": {
+      "@id": "azuresynapse:value",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "nextLink": {
+      "@id": "azuresynapse:nextLink",
+      "@type": "xsd:string"
+    },
+    "sku": {
+      "@id": "azuresynapse:sku",
+      "@type": "@id"
+    }
+  }
+}

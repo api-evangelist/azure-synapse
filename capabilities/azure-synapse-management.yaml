@@ -1,0 +1,93 @@
+naftiko: "1.0.0-alpha1"
+
+info:
+  label: "Azure Synapse Analytics Management"
+  description: "Workflow capability for managing Azure Synapse Analytics resources. Used by cloud engineers and DevOps teams."
+  tags:
+    - Azure
+    - Cloud
+    - Management
+  created: "2026-04-19"
+  modified: "2026-04-19"
+
+binds:
+  - namespace: env
+    keys:
+      AZURE_SUBSCRIPTION_ID: AZURE_SUBSCRIPTION_ID
+      AZURE_ACCESS_TOKEN: AZURE_ACCESS_TOKEN
+
+capability:
+  consumes:
+    - import: azure-synapse
+      location: ./shared/azure-synapse.yaml
+
+  exposes:
+    - type: rest
+      port: 8081
+      namespace: azure-synapse-management-api
+      description: "Unified REST API for Azure Synapse Analytics management."
+      resources:
+        - path: /v1/resources
+          name: resources
+          description: "Resource management"
+          operations:
+            - method: GET
+              name: list
+              description: "List all resources"
+              call: "azure-synapse.list-workspaces"
+              with:
+                subscriptionId: "rest.subscriptionId"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+    - type: mcp
+      port: 9091
+      namespace: azure-synapse-management-mcp
+      transport: http
+      description: "MCP server for AI-assisted Azure Synapse Analytics management."
+      tools:
+        - name: list-workspaces
+          description: "List Workspace resources"
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "azure-synapse.list-workspaces"
+          with:
+            subscriptionId: "tools.subscriptionId"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: list-sql-pools
+          description: "List SqlPool resources"
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "azure-synapse.list-sql-pools"
+          with:
+            subscriptionId: "tools.subscriptionId"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: list-big-data-pools
+          description: "List BigDataPool resources"
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "azure-synapse.list-big-data-pools"
+          with:
+            subscriptionId: "tools.subscriptionId"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: list-pipelines
+          description: "List Pipeline resources"
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "azure-synapse.list-pipelines"
+          with:
+            subscriptionId: "tools.subscriptionId"
+          outputParameters:
+            - type: object
+              mapping: "$."

@@ -1,0 +1,16 @@
+{
+  "id": "example-string",
+  "name": "example-string",
+  "location": "example-string",
+  "tags": {},
+  "sku": {
+    "tier": "example-string",
+    "name": "example-string",
+    "capacity": 1
+  },
+  "properties": {
+    "provisioningState": "example-string",
+    "status": "example-string",
+    "restorePointInTime": "2026-04-19T12:00:00Z"
+  }
+}
