@@ -1,0 +1,97 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Azure Synapse Analytics API — SQL Pools
+  description: 'Azure Synapse Analytics API — SQL Pools. 1 operations. Lead operation: Azure Synapse List SQL Pools. Self-contained
+    Naftiko capability covering one Azure Synapse business surface.'
+  tags:
+  - Azure Synapse
+  - SQL Pools
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AZURE_SYNAPSE_API_KEY: AZURE_SYNAPSE_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: azure-synapse-sql-pools
+    baseUri: https://management.azure.com
+    description: Azure Synapse Analytics API — SQL Pools business capability. Self-contained, no shared references.
+    resources:
+    - name: subscriptions-subscriptionId-resourceGroups-resourceGroupName-providers-Microsof
+      path: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Synapse/workspaces/{workspaceName}/sqlPools
+      operations:
+      - name: sqlpoolslistbyworkspace
+        method: GET
+        description: Azure Synapse List SQL Pools
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: subscriptionId
+          in: path
+          type: string
+          required: true
+        - name: resourceGroupName
+          in: path
+          type: string
+          required: true
+        - name: workspaceName
+          in: path
+          type: string
+          required: true
+        - name: api-version
+          in: query
+          type: string
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.AZURE_SYNAPSE_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: azure-synapse-sql-pools-rest
+    port: 8080
+    description: REST adapter for Azure Synapse Analytics API — SQL Pools. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/subscriptions/{subscriptionid}/resourcegroups/{resourcegroupname}/providers/microsoft-synapse/workspaces/{workspacename}/sqlpools
+      name: subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsof
+      description: REST surface for subscriptions-subscriptionId-resourceGroups-resourceGroupName-providers-Microsof.
+      operations:
+      - method: GET
+        name: sqlpoolslistbyworkspace
+        description: Azure Synapse List SQL Pools
+        call: azure-synapse-sql-pools.sqlpoolslistbyworkspace
+        with:
+          subscriptionId: rest.subscriptionId
+          resourceGroupName: rest.resourceGroupName
+          workspaceName: rest.workspaceName
+          api-version: rest.api-version
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: azure-synapse-sql-pools-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Azure Synapse Analytics API — SQL Pools. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: azure-synapse-list-sql-pools
+      description: Azure Synapse List SQL Pools
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: azure-synapse-sql-pools.sqlpoolslistbyworkspace
+      with:
+        subscriptionId: tools.subscriptionId
+        resourceGroupName: tools.resourceGroupName
+        workspaceName: tools.workspaceName
+        api-version: tools.api-version
+      outputParameters:
+      - type: object
+        mapping: $.
