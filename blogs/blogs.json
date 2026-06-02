@@ -2,13 +2,13 @@
   "repo": "azure-synapse",
   "feeds": [
     {
-      "source": "https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/bg-p/AzureSynapseAnalyticsBlog",
-      "feed_url": "",
+      "source": "https://azure.microsoft.com/en-us/support/",
+      "feed_url": "https://azure.microsoft.com/en-us/support/",
       "title": "",
       "saved": 0,
-      "error": "no_feed"
+      "method": "none"
     }
   ],
-  "fetched": "2026-05-17T20:48:52Z",
+  "fetched": "2026-06-01T23:35:02Z",
   "post_count": 0
 }
