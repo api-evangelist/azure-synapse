@@ -46,11 +46,11 @@ apis:
     url: https://docs.microsoft.com/en-us/rest/api/synapse/data-plane/pipeline
   - type: OpenAPI
     url: https://raw.githubusercontent.com/api-evangelist/azure-synapse/refs/heads/main/openapi/azure-synapse-openapi.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/azure-synapse-sql-pools.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/azure-synapse-spark-pools.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/azure-synapse-workspaces.yaml
 common:
 - type: Portal
