@@ -53,6 +53,10 @@ apis:
   - type: X-NaftikoCapability
     url: capabilities/azure-synapse-workspaces.yaml
 common:
+- type: DomainSecurity
+  url: security/azure-synapse-domain-security.yml
+- type: Authentication
+  url: authentication/azure-synapse-authentication.yml
 - type: OAuthScopes
   url: scopes/azure-synapse-scopes.yml
 - type: Portal
