@@ -53,6 +53,8 @@ apis:
   - type: X-NaftikoCapability
     url: capabilities/azure-synapse-workspaces.yaml
 common:
+- type: AgenticAccess
+  url: agentic-access/azure-synapse-agentic-access.yml
 - type: DomainSecurity
   url: security/azure-synapse-domain-security.yml
 - type: Authentication
