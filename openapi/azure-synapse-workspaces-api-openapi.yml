@@ -1,9 +1,7 @@
 openapi: 3.0.3
 info:
-  title: Azure Synapse Analytics API
-  description: >-
-    REST API for managing Azure Synapse Analytics workspaces, SQL pools,
-    Apache Spark pools, and data integration pipelines.
+  title: Azure Synapse Analytics Spark Pools Workspaces API
+  description: REST API for managing Azure Synapse Analytics workspaces, SQL pools, Apache Spark pools, and data integration pipelines.
   version: '2021-06-01'
   x-generated-from: documentation
 servers:
@@ -15,12 +13,6 @@ security:
 tags:
 - name: Workspaces
   description: Manage Synapse Analytics workspaces
-- name: SQL Pools
-  description: Manage dedicated SQL pools
-- name: Spark Pools
-  description: Manage Apache Spark pools
-- name: Pipelines
-  description: Manage data integration pipelines
 paths:
   /subscriptions/{subscriptionId}/providers/Microsoft.Synapse/workspaces:
     get:
@@ -35,7 +27,7 @@ paths:
         required: true
         schema:
           type: string
-        example: '00000000-0000-0000-0000-000000000000'
+        example: 00000000-0000-0000-0000-000000000000
       - name: api-version
         in: query
         required: true
@@ -73,19 +65,19 @@ paths:
         required: true
         schema:
           type: string
-        example: '00000000-0000-0000-0000-000000000000'
+        example: 00000000-0000-0000-0000-000000000000
       - name: resourceGroupName
         in: path
         required: true
         schema:
           type: string
-        example: 'my-resource-group'
+        example: my-resource-group
       - name: workspaceName
         in: path
         required: true
         schema:
           type: string
-        example: 'my-synapse-workspace'
+        example: my-synapse-workspace
       - name: api-version
         in: query
         required: true
@@ -122,19 +114,19 @@ paths:
         required: true
         schema:
           type: string
-        example: '00000000-0000-0000-0000-000000000000'
+        example: 00000000-0000-0000-0000-000000000000
       - name: resourceGroupName
         in: path
         required: true
         schema:
           type: string
-        example: 'my-resource-group'
+        example: my-resource-group
       - name: workspaceName
         in: path
         required: true
         schema:
           type: string
-        example: 'my-synapse-workspace'
+        example: my-synapse-workspace
       - name: api-version
         in: query
         required: true
@@ -220,116 +212,18 @@ paths:
       x-microcks-operation:
         delay: 0
         dispatcher: FALLBACK
-  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Synapse/workspaces/{workspaceName}/sqlPools
-  : get:
-      operationId: SqlPools_ListByWorkspace
-      summary: Azure Synapse List SQL Pools
-      description: List SQL pools in a workspace.
-      tags:
-      - SQL Pools
-      parameters:
-      - name: subscriptionId
-        in: path
-        required: true
-        schema:
-          type: string
-        example: '00000000-0000-0000-0000-000000000000'
-      - name: resourceGroupName
-        in: path
-        required: true
-        schema:
-          type: string
-        example: 'my-resource-group'
-      - name: workspaceName
-        in: path
-        required: true
-        schema:
-          type: string
-        example: 'my-synapse-workspace'
-      - name: api-version
-        in: query
-        required: true
-        schema:
-          type: string
-        example: '2021-06-01'
-      responses:
-        '200':
-          description: List of SQL pools
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/SqlPoolInfoListResult'
-              examples:
-                SqlPools_ListByWorkspace200Example:
-                  summary: Default SqlPools_ListByWorkspace 200 response
-                  x-microcks-default: true
-                  value:
-                    id: example-id
-                    name: example
-                    provisioningState: Succeeded
-      x-microcks-operation:
-        delay: 0
-        dispatcher: FALLBACK
-  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Synapse/workspaces/{workspaceName}/bigDataPools
-  : get:
-      operationId: BigDataPools_ListByWorkspace
-      summary: Azure Synapse List Spark Pools
-      description: List Apache Spark pools in a workspace.
-      tags:
-      - Spark Pools
-      parameters:
-      - name: subscriptionId
-        in: path
-        required: true
-        schema:
-          type: string
-        example: '00000000-0000-0000-0000-000000000000'
-      - name: resourceGroupName
-        in: path
-        required: true
-        schema:
-          type: string
-        example: 'my-resource-group'
-      - name: workspaceName
-        in: path
-        required: true
-        schema:
-          type: string
-        example: 'my-synapse-workspace'
-      - name: api-version
-        in: query
-        required: true
-        schema:
-          type: string
-        example: '2021-06-01'
-      responses:
-        '200':
-          description: List of Spark pools
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/BigDataPoolResourceInfoListResult'
-              examples:
-                BigDataPools_ListByWorkspace200Example:
-                  summary: Default BigDataPools_ListByWorkspace 200 response
-                  x-microcks-default: true
-                  value:
-                    id: example-id
-                    name: example
-                    provisioningState: Succeeded
-      x-microcks-operation:
-        delay: 0
-        dispatcher: FALLBACK
 components:
-  securitySchemes:
-    azure_auth:
-      type: oauth2
-      flows:
-        implicit:
-          authorizationUrl: https://login.microsoftonline.com/common/oauth2/authorize
-          scopes:
-            user_impersonation: Impersonate your user account
   schemas:
+    WorkspaceInfoListResult:
+      type: object
+      properties:
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/Workspace'
+        nextLink:
+          type: string
+          readOnly: true
     Workspace:
       type: object
       description: A workspace resource.
@@ -376,108 +270,11 @@ components:
               readOnly: true
               additionalProperties:
                 type: string
-    WorkspaceInfoListResult:
-      type: object
-      properties:
-        value:
-          type: array
-          items:
-            $ref: '#/components/schemas/Workspace'
-        nextLink:
-          type: string
-          readOnly: true
-    SqlPool:
-      type: object
-      description: A SQL pool resource.
-      properties:
-        id:
-          type: string
-          readOnly: true
-        name:
-          type: string
-          readOnly: true
-        location:
-          type: string
-        tags:
-          type: object
-          additionalProperties:
-            type: string
-        sku:
-          type: object
-          properties:
-            tier:
-              type: string
-            name:
-              type: string
-            capacity:
-              type: integer
-        properties:
-          type: object
-          properties:
-            provisioningState:
-              type: string
-              readOnly: true
-            status:
-              type: string
-              readOnly: true
-            restorePointInTime:
-              type: string
-              format: date-time
-    SqlPoolInfoListResult:
-      type: object
-      properties:
-        value:
-          type: array
-          items:
-            $ref: '#/components/schemas/SqlPool'
-        nextLink:
-          type: string
-    BigDataPool:
-      type: object
-      description: An Apache Spark pool resource.
-      properties:
-        id:
-          type: string
-          readOnly: true
-        name:
-          type: string
-          readOnly: true
-        location:
-          type: string
-        properties:
-          type: object
-          properties:
-            provisioningState:
-              type: string
-              readOnly: true
-            nodeCount:
-              type: integer
-            nodeSize:
-              type: string
-              enum:
-              - Small
-              - Medium
-              - Large
-              - XLarge
-              - XXLarge
-              - XXXLarge
-            sparkVersion:
-              type: string
-            autoScaleProperties:
-              type: object
-              properties:
-                minNodeCount:
-                  type: integer
-                maxNodeCount:
-                  type: integer
-                enabled:
-                  type: boolean
-    BigDataPoolResourceInfoListResult:
-      type: object
-      properties:
-        value:
-          type: array
-          items:
-            $ref: '#/components/schemas/BigDataPool'
-        nextLink:
-          type: string
+  securitySchemes:
+    azure_auth:
+      type: oauth2
+      flows:
+        implicit:
+          authorizationUrl: https://login.microsoftonline.com/common/oauth2/authorize
+          scopes:
+            user_impersonation: Impersonate your user account
