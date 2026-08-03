@@ -1,0 +1,18 @@
+{
+  "provider": "azure-synapse",
+  "sources": [
+    "azure-synapse-spark-pools-api-openapi.yml",
+    "azure-synapse-sql-pools-api-openapi.yml",
+    "azure-synapse-workspaces-api-openapi.yml"
+  ],
+  "outputs": [
+    "azure-synapse-spark-pools-api-openapi.yml",
+    "azure-synapse-sql-pools-api-openapi.yml",
+    "azure-synapse-workspaces-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

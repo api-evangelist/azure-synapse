@@ -1,0 +1,255 @@
+{
+  "info": {
+    "_postman_id": "4959009f-f20d-45c0-8bf6-741316843161",
+    "name": "Azure Synapse Analytics Spark Pools SQL Pools API",
+    "description": "REST API for managing Azure Synapse Analytics workspaces, SQL pools, Apache Spark pools, and data integration pipelines.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:11:21.000Z",
+    "updatedAt": "2026-07-28T01:11:21.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-4959009f-f20d-45c0-8bf6-741316843161"
+  },
+  "item": [
+    {
+      "name": "subscriptions",
+      "item": [
+        {
+          "name": "{subscriptionId}",
+          "item": [
+            {
+              "name": "resourceGroups",
+              "item": [
+                {
+                  "name": "{resourceGroupName}",
+                  "item": [
+                    {
+                      "name": "providers",
+                      "item": [
+                        {
+                          "name": "Microsoft.Synapse",
+                          "item": [
+                            {
+                              "name": "workspaces",
+                              "item": [
+                                {
+                                  "name": "{workspaceName}",
+                                  "item": [
+                                    {
+                                      "name": "sqlPools",
+                                      "item": [
+                                        {
+                                          "name": "Azure Synapse List SQL Pools",
+                                          "id": "249f33bc-bff2-411b-9e78-f041f7cd04b7",
+                                          "protocolProfileBehavior": {
+                                            "disableBodyPruning": true
+                                          },
+                                          "request": {
+                                            "method": "GET",
+                                            "header": [
+                                              {
+                                                "key": "Accept",
+                                                "value": "application/json"
+                                              }
+                                            ],
+                                            "url": {
+                                              "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Synapse/workspaces/:workspaceName/sqlPools?api-version=<string>",
+                                              "host": [
+                                                "{{baseUrl}}"
+                                              ],
+                                              "path": [
+                                                "subscriptions",
+                                                ":subscriptionId",
+                                                "resourceGroups",
+                                                ":resourceGroupName",
+                                                "providers",
+                                                "Microsoft.Synapse",
+                                                "workspaces",
+                                                ":workspaceName",
+                                                "sqlPools"
+                                              ],
+                                              "query": [
+                                                {
+                                                  "description": "(Required) ",
+                                                  "key": "api-version",
+                                                  "value": "<string>"
+                                                }
+                                              ],
+                                              "variable": [
+                                                {
+                                                  "id": "62894820-ff54-4fb1-9c3b-d00180ebd6dc",
+                                                  "key": "subscriptionId",
+                                                  "value": "<string>",
+                                                  "description": "(Required) "
+                                                },
+                                                {
+                                                  "id": "f483bd6e-d83b-4f55-83e7-c86676844f3c",
+                                                  "key": "resourceGroupName",
+                                                  "value": "<string>",
+                                                  "description": "(Required) "
+                                                },
+                                                {
+                                                  "id": "66f11937-4916-4159-87e3-62e5108305b5",
+                                                  "key": "workspaceName",
+                                                  "value": "<string>",
+                                                  "description": "(Required) "
+                                                }
+                                              ]
+                                            },
+                                            "description": "List SQL pools in a workspace."
+                                          },
+                                          "response": [
+                                            {
+                                              "id": "a3c6075b-8069-45d8-b32a-4a08986ece52",
+                                              "name": "List of SQL pools",
+                                              "originalRequest": {
+                                                "method": "GET",
+                                                "header": [
+                                                  {
+                                                    "key": "Accept",
+                                                    "value": "application/json"
+                                                  },
+                                                  {
+                                                    "description": "Added as a part of security scheme: oauth2",
+                                                    "key": "Authorization",
+                                                    "value": "<token>"
+                                                  }
+                                                ],
+                                                "url": {
+                                                  "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Synapse/workspaces/:workspaceName/sqlPools?api-version=<string>",
+                                                  "host": [
+                                                    "{{baseUrl}}"
+                                                  ],
+                                                  "path": [
+                                                    "subscriptions",
+                                                    ":subscriptionId",
+                                                    "resourceGroups",
+                                                    ":resourceGroupName",
+                                                    "providers",
+                                                    "Microsoft.Synapse",
+                                                    "workspaces",
+                                                    ":workspaceName",
+                                                    "sqlPools"
+                                                  ],
+                                                  "query": [
+                                                    {
+                                                      "description": "(Required) ",
+                                                      "key": "api-version",
+                                                      "value": "<string>"
+                                                    }
+                                                  ],
+                                                  "variable": [
+                                                    {
+                                                      "key": "subscriptionId"
+                                                    },
+                                                    {
+                                                      "key": "resourceGroupName"
+                                                    },
+                                                    {
+                                                      "key": "workspaceName"
+                                                    }
+                                                  ]
+                                                }
+                                              },
+                                              "status": "OK",
+                                              "code": 200,
+                                              "_postman_previewlanguage": "json",
+                                              "header": [
+                                                {
+                                                  "key": "Content-Type",
+                                                  "value": "application/json"
+                                                }
+                                              ],
+                                              "cookie": [],
+                                              "responseTime": null,
+                                              "body": "{\n  \"value\": [\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"location\": \"<string>\",\n      \"tags\": {\n        \"dolor_24\": \"<string>\",\n        \"reprehenderit8\": \"<string>\"\n      },\n      \"sku\": {\n        \"tier\": \"<string>\",\n        \"name\": \"<string>\",\n        \"capacity\": \"<integer>\"\n      },\n      \"properties\": {\n        \"provisioningState\": \"<string>\",\n        \"status\": \"<string>\",\n        \"restorePointInTime\": \"<dateTime>\"\n      }\n    },\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"location\": \"<string>\",\n      \"tags\": {\n        \"tempor_5f\": \"<string>\"\n      },\n      \"sku\": {\n        \"tier\": \"<string>\",\n        \"name\": \"<string>\",\n        \"capacity\": \"<integer>\"\n      },\n      \"properties\": {\n        \"provisioningState\": \"<string>\",\n        \"status\": \"<string>\",\n        \"restorePointInTime\": \"<dateTime>\"\n      }\n    }\n  ],\n  \"nextLink\": \"<string>\"\n}",
+                                              "createdAt": "2026-07-28T01:11:22.000Z",
+                                              "updatedAt": "2026-07-28T01:11:22.000Z",
+                                              "uid": "35240-a3c6075b-8069-45d8-b32a-4a08986ece52"
+                                            }
+                                          ],
+                                          "createdAt": "2026-07-28T01:11:22.000Z",
+                                          "updatedAt": "2026-07-28T01:11:22.000Z",
+                                          "uid": "35240-249f33bc-bff2-411b-9e78-f041f7cd04b7"
+                                        }
+                                      ],
+                                      "id": "4d93d1c0-d6be-4745-9066-92d859c99631",
+                                      "createdAt": "2026-07-28T01:11:22.000Z",
+                                      "updatedAt": "2026-07-28T01:11:22.000Z",
+                                      "uid": "35240-4d93d1c0-d6be-4745-9066-92d859c99631"
+                                    }
+                                  ],
+                                  "id": "bdce46c5-7750-434e-ad05-b12f20420765",
+                                  "createdAt": "2026-07-28T01:11:22.000Z",
+                                  "updatedAt": "2026-07-28T01:11:22.000Z",
+                                  "uid": "35240-bdce46c5-7750-434e-ad05-b12f20420765"
+                                }
+                              ],
+                              "id": "f1ba0ae4-974e-4bd6-a447-c576ea3cd125",
+                              "createdAt": "2026-07-28T01:11:22.000Z",
+                              "updatedAt": "2026-07-28T01:11:22.000Z",
+                              "uid": "35240-f1ba0ae4-974e-4bd6-a447-c576ea3cd125"
+                            }
+                          ],
+                          "id": "67c030aa-f4f0-4655-9d1c-008f6119eb1b",
+                          "createdAt": "2026-07-28T01:11:22.000Z",
+                          "updatedAt": "2026-07-28T01:11:22.000Z",
+                          "uid": "35240-67c030aa-f4f0-4655-9d1c-008f6119eb1b"
+                        }
+                      ],
+                      "id": "28d934db-4291-4dc5-884d-81fedac1e40e",
+                      "createdAt": "2026-07-28T01:11:22.000Z",
+                      "updatedAt": "2026-07-28T01:11:22.000Z",
+                      "uid": "35240-28d934db-4291-4dc5-884d-81fedac1e40e"
+                    }
+                  ],
+                  "id": "74c65d63-60f4-48e1-ab27-6602fc6f95eb",
+                  "createdAt": "2026-07-28T01:11:22.000Z",
+                  "updatedAt": "2026-07-28T01:11:22.000Z",
+                  "uid": "35240-74c65d63-60f4-48e1-ab27-6602fc6f95eb"
+                }
+              ],
+              "id": "335709b5-fa40-4724-adbf-28bc2ecc74eb",
+              "createdAt": "2026-07-28T01:11:22.000Z",
+              "updatedAt": "2026-07-28T01:11:22.000Z",
+              "uid": "35240-335709b5-fa40-4724-adbf-28bc2ecc74eb"
+            }
+          ],
+          "id": "a86870de-132d-484a-8fe0-7016b03bf87a",
+          "createdAt": "2026-07-28T01:11:22.000Z",
+          "updatedAt": "2026-07-28T01:11:22.000Z",
+          "uid": "35240-a86870de-132d-484a-8fe0-7016b03bf87a"
+        }
+      ],
+      "id": "fbdab96a-9a72-4461-9a2c-54324fc1c96c",
+      "createdAt": "2026-07-28T01:11:22.000Z",
+      "updatedAt": "2026-07-28T01:11:22.000Z",
+      "uid": "35240-fbdab96a-9a72-4461-9a2c-54324fc1c96c"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "user_impersonation",
+        "type": "string"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://login.microsoftonline.com/common/oauth2/authorize",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "implicit",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://management.azure.com"
+    }
+  ]
+}
