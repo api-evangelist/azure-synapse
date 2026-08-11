@@ -46,12 +46,6 @@ apis:
     url: https://docs.microsoft.com/en-us/azure/active-directory/develop/authentication-scenarios
   - type: Documentation
     url: https://docs.microsoft.com/en-us/rest/api/synapse/data-plane/pipeline
-  - type: X-NaftikoCapability
-    url: capabilities/azure-synapse-sql-pools.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/azure-synapse-spark-pools.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/azure-synapse-workspaces.yaml
 - aid: azure-synapse:azure-synapse-sql-pools-api
   name: Azure Synapse Analytics SQL Pools API
   description: Manage dedicated SQL pools
@@ -68,12 +62,6 @@ apis:
     url: https://docs.microsoft.com/en-us/azure/active-directory/develop/authentication-scenarios
   - type: Documentation
     url: https://docs.microsoft.com/en-us/rest/api/synapse/data-plane/pipeline
-  - type: X-NaftikoCapability
-    url: capabilities/azure-synapse-sql-pools.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/azure-synapse-spark-pools.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/azure-synapse-workspaces.yaml
 - aid: azure-synapse:azure-synapse-workspaces-api
   name: Azure Synapse Analytics Workspaces API
   description: Manage Synapse Analytics workspaces
@@ -90,12 +78,6 @@ apis:
     url: https://docs.microsoft.com/en-us/azure/active-directory/develop/authentication-scenarios
   - type: Documentation
     url: https://docs.microsoft.com/en-us/rest/api/synapse/data-plane/pipeline
-  - type: X-NaftikoCapability
-    url: capabilities/azure-synapse-sql-pools.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/azure-synapse-spark-pools.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/azure-synapse-workspaces.yaml
 common:
 - type: PostmanWorkspace
   url: https://www.postman.com/kinlaneapi/azure-synapse-analytics/overview
