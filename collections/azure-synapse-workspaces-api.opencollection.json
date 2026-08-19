@@ -1,0 +1,154 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Azure Synapse Analytics Spark Pools Workspaces API",
+    "version": "2021-06-01"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "implicit",
+      "authorizationUrl": "https://login.microsoftonline.com/common/oauth2/authorize",
+      "credentials": {
+        "clientId": "{{clientId}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Workspaces",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Azure Synapse List Workspaces",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://management.azure.com/subscriptions/:subscriptionId/providers/Microsoft.Synapse/workspaces",
+            "params": [
+              {
+                "name": "subscriptionId",
+                "value": "00000000-0000-0000-0000-000000000000",
+                "type": "path"
+              },
+              {
+                "name": "api-version",
+                "value": "2021-06-01",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns a list of workspaces in a subscription."
+        },
+        {
+          "info": {
+            "name": "Azure Synapse Get a Workspace",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Synapse/workspaces/:workspaceName",
+            "params": [
+              {
+                "name": "subscriptionId",
+                "value": "00000000-0000-0000-0000-000000000000",
+                "type": "path"
+              },
+              {
+                "name": "resourceGroupName",
+                "value": "my-resource-group",
+                "type": "path"
+              },
+              {
+                "name": "workspaceName",
+                "value": "my-synapse-workspace",
+                "type": "path"
+              },
+              {
+                "name": "api-version",
+                "value": "2021-06-01",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Gets a workspace."
+        },
+        {
+          "info": {
+            "name": "Azure Synapse Create or Update a Workspace",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Synapse/workspaces/:workspaceName",
+            "params": [
+              {
+                "name": "subscriptionId",
+                "value": "00000000-0000-0000-0000-000000000000",
+                "type": "path"
+              },
+              {
+                "name": "resourceGroupName",
+                "value": "my-resource-group",
+                "type": "path"
+              },
+              {
+                "name": "workspaceName",
+                "value": "my-synapse-workspace",
+                "type": "path"
+              },
+              {
+                "name": "api-version",
+                "value": "2021-06-01",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates or updates a workspace."
+        },
+        {
+          "info": {
+            "name": "Azure Synapse Delete a Workspace",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Synapse/workspaces/:workspaceName",
+            "params": [
+              {
+                "name": "subscriptionId",
+                "value": "00000000-0000-0000-0000-000000000000",
+                "type": "path"
+              },
+              {
+                "name": "resourceGroupName",
+                "value": "my-resource-group",
+                "type": "path"
+              },
+              {
+                "name": "workspaceName",
+                "value": "example-value",
+                "type": "path"
+              },
+              {
+                "name": "api-version",
+                "value": "2019-06-01",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Deletes a workspace."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
