@@ -4,6 +4,18 @@ description: Azure Synapse Analytics is an enterprise analytics service that acc
   and big data systems. It brings together SQL technologies, Spark technologies, Data Explorer, and integrated pipelines for
   data integration and ETL/ELT.
 type: Index
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: freemium
   onboarding: self-serve
