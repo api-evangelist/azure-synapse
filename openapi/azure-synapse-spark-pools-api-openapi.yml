@@ -1,4 +1,4 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
   title: Azure Synapse Analytics Spark Pools API
   description: REST API for managing Azure Synapse Analytics workspaces, SQL pools, Apache Spark pools, and data integration pipelines.
@@ -66,15 +66,6 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
-    BigDataPoolResourceInfoListResult:
-      type: object
-      properties:
-        value:
-          type: array
-          items:
-            $ref: '#/components/schemas/BigDataPool'
-        nextLink:
-          type: string
     BigDataPool:
       type: object
       description: An Apache Spark pool resource.
@@ -115,6 +106,15 @@ components:
                   type: integer
                 enabled:
                   type: boolean
+    BigDataPoolResourceInfoListResult:
+      type: object
+      properties:
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/BigDataPool'
+        nextLink:
+          type: string
   securitySchemes:
     azure_auth:
       type: oauth2
