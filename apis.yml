@@ -1,5 +1,6 @@
 aid: azure-synapse
 name: Azure Synapse Analytics
+x-parent: microsoft-azure
 description: Azure Synapse Analytics is an enterprise analytics service that accelerates time to insight across data warehouses
   and big data systems. It brings together SQL technologies, Spark technologies, Data Explorer, and integrated pipelines for
   data integration and ETL/ELT.
@@ -37,7 +38,7 @@ tags:
 - Data Warehouse
 - ETL
 - SQL
-url: https://raw.githubusercontent.com/api-evangelist/azure-synapse/refs/heads/main/apis.yml
+url: https://docs.microsoft.com/en-us/azure/synapse-analytics/
 created: '2024-01-01'
 modified: '2026-05-19'
 specificationVersion: '0.23'
