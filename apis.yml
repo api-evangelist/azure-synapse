@@ -81,6 +81,8 @@ apis:
   humanURL: https://docs.microsoft.com/en-us/rest/api/synapse/
   baseURL: https://management.azure.com
   tags:
+  - Workspace
+  tags_raw:
   - Workspaces
   properties:
   - type: OpenAPI

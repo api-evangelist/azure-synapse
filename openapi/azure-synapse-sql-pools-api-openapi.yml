@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: Azure Synapse Analytics Spark Pools SQL Pools API
+  title: Azure Synapse Analytics SQL Pools API
   description: REST API for managing Azure Synapse Analytics workspaces, SQL pools, Apache Spark pools, and data integration pipelines.
   version: '2021-06-01'
   x-generated-from: documentation
@@ -66,6 +66,15 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
+    SqlPoolInfoListResult:
+      type: object
+      properties:
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/SqlPool'
+        nextLink:
+          type: string
     SqlPool:
       type: object
       description: A SQL pool resource.
@@ -103,15 +112,6 @@ components:
             restorePointInTime:
               type: string
               format: date-time
-    SqlPoolInfoListResult:
-      type: object
-      properties:
-        value:
-          type: array
-          items:
-            $ref: '#/components/schemas/SqlPool'
-        nextLink:
-          type: string
   securitySchemes:
     azure_auth:
       type: oauth2

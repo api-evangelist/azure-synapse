@@ -1,23 +1,24 @@
 {
   "provider": "azure-synapse",
   "sources": [
-    "azure-synapse-spark-pools-api-openapi.yml",
-    "azure-synapse-sql-pools-api-openapi.yml",
-    "azure-synapse-workspaces-api-openapi.yml"
+    "_ae-authored/azure-synapse-openapi.yaml"
   ],
   "outputs": [
-    "azure-synapse-spark-pools-api-openapi.yml",
     "azure-synapse-sql-pools-api-openapi.yml",
+    "azure-synapse-spark-pools-api-openapi.yml",
     "azure-synapse-workspaces-api-openapi.yml"
   ],
   "archived": [],
   "errors": [],
   "warnings": [],
   "notes": [
-    "azure-synapse-spark-pools-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
-    "azure-synapse-sql-pools-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
-    "azure-synapse-workspaces-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "sourced from openapi/_original/ (0 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "azure-synapse-openapi.yaml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
     "apis.yml register: already-registered"
   ],
-  "skipped": []
+  "skipped": [
+    "azure-synapse-spark-pools-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "azure-synapse-sql-pools-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "azure-synapse-workspaces-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }
